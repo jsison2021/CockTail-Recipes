@@ -1,0 +1,126 @@
+.App{
+    text-align: center;
+}
+
+.body{
+    background:linear-gradient(rgba(201, 214, 214, 0.5),transparent);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #456E68;
+    height: 100vh;
+    text-align: center;
+}
+
+/*
+    Navbar
+*/
+
+.regularNav{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    
+}
+
+.mobileNav{
+    display: none;
+}
+
+.barlinks{
+    color: #003E29;
+    font-weight: bold;
+    margin: 40px;
+    font-size: 35px;
+    text-decoration: none;
+ 
+}
+
+.barlinks-active{
+    color: #003E29;
+    font-weight: bold;
+    margin: 40px;
+    font-size: 35px;
+    text-decoration: underline;
+ 
+}
+
+.barlinks:hover {
+    color: #003E29;
+}
+
+.barlinks::before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2px;
+    top: 90%;
+    left: 0px;
+    background-color: #003E29;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  
+}
+
+.barlinks:hover::before {
+    transform: scaleX(1);
+}
+
+@media screen and (max-width:769px){
+    /*
+        Mobile Navigation
+    */
+    .regularNav{
+        display: none;
+    }
+    .mobileNav{
+        display: flex;
+
+        flex-direction: column;
+        text-align: center;
+    }
+    .menuDesc{
+        display: inline-block;
+        border: none;
+        background-color: transparent;
+        color:#003E29;
+        text-align: right;
+        margin-right: 10px;
+    }
+    .menuButton{
+        border: none;
+        background-color: transparent;
+        color:#0C243C;
+        text-align: right;
+        margin: 20px 20px 0px 0px;
+    }
+    .mobileMenu{
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .barlinks{
+        color: #003E29;
+        font-weight: bold;
+        text-align: center;
+        font-size: 15px;
+        text-decoration: none;
+     
+    }
+    
+    .barlinks-active{
+        color: #003E29;
+        font-weight: bold;
+        text-align: center;
+        font-size: 15px;
+        text-decoration: underline;
+     
+    }
+    .barlinks::before {
+       display: none
+      
+    }
+    .barlinks:hover::before {
+        transform: scaleX(1);
+    }
+} 
+ 
