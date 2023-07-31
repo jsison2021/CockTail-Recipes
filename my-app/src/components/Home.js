@@ -10,32 +10,28 @@ function Home(){
    const [error, setError] = useState(null)
 
    let gettingInfo = () =>{
-      const top3 = ["11001","11003","11000"]
-
-      for (let i = 0; 0 < top3.length; i++){
-         console.log( top3[i])
-         /*
-         axios
-         .get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + top3[i])
-         .then(function (response) {
-            // handle success
-            console.log(response.data)
       
-         })
-         .catch(function (error) {
-            // handle error
-            if (error.response.status === 400) {
-               console.log(error)
-               setError('Cant find record')
-            } else {
-               setError('Unexpected Error')
-            }
-         })
-         .then(function () {
-            // always executed
-         })*/
-      }
-    }
+      axios
+      .get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
+      .then(function (response) {
+         // handle success
+         console.log(response.data.drinks)
+         setData(response.data.drinks)
+      })
+      .catch(function (error) {
+         // handle error
+         if (error.response.status === 400) {
+            console.log(error)
+            setError('Cant find record')
+         } else {
+            setError('Unexpected Error')
+         }
+      })
+      .then(function () {
+         // always executed
+      })
+      
+   }
     
     useEffect(() => {
       gettingInfo()
@@ -43,7 +39,20 @@ function Home(){
 
    return(
       <AnimatedPage>
-         <p>home</p>
+          <p>home</p>
+          {data && data.length > 0 && (
+             <>
+            
+               {data.map((drink) => {
+                 return (
+                   <div key={drink}>
+                     <p>{drink.strDrink}</p>
+                   </div>
+                 );
+               })}
+             
+           </>
+          )}
         
       </AnimatedPage>
    )
