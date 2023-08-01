@@ -32,7 +32,7 @@
     font-size: 25px;
 }
 .dropDownMenu{
-    position: fixed;
+    position: absolute;
     padding: 10px 10px 30px 10px;
     border-style: solid;
     border-radius: 10px;

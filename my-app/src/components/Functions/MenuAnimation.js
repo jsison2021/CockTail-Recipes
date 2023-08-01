@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const animations = {
-  initial: { opacity: 0, y: -100 },
-  animate: { opacity: 1, y: 0 },
+  initial: { opacity: 0, },
+  animate: { opacity: 1},
   transition: {duration: 1},
-  exit: { opacity: 0, y: -100 },
+  exit: { opacity: 0},
 };
 
 const MenuAnimation = ({ children }) => {
@@ -15,7 +15,7 @@ const MenuAnimation = ({ children }) => {
       initial="initial"
       animate="animate"
       exit="exit"
-      transition={{ duration: .5 }}
+      transition={{ duration: .8 }}
     >
       {children}
     </motion.div>

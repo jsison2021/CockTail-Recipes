@@ -72,6 +72,7 @@ function Mainbar() {
             </MenuAnimation>
           }
         </button>
+        
       </div>
       
       <div className='mobileNav'>
