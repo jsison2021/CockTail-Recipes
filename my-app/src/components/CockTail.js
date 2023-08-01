@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import axios from "axios"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft,faStar } from '@fortawesome/free-solid-svg-icons'
 
 
 function CockTail(){
@@ -58,7 +58,8 @@ function CockTail(){
             
                   <Card className="cardContainer-2">
                      <Card.Body>
-                           <button className = "backButton" onClick={goBack}><FontAwesomeIcon className = "backIcon" icon={faArrowLeft} /></button>	
+                           <button className = "backIcon" onClick={goBack}><FontAwesomeIcon icon={faArrowLeft} /></button>
+                           <button className = 'favIcon-2'><FontAwesomeIcon icon={faStar} /></button>
                            <Card.Text>
                               <img className = 'cocktailImage-2' src = {drink.strDrinkThumb}  alt = "drink"></img>
                            </Card.Text>     

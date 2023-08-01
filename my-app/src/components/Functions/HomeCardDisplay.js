@@ -4,6 +4,8 @@ import { Card } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import axios from "axios"; 
 import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 const HomeCardDisplay = () => {
     let [data1, setData1] = useState(null)
@@ -81,16 +83,17 @@ const HomeCardDisplay = () => {
             <>
             <div className='gridContainer'>
             <div className='grid'>
-                {data1.map((drink, index) => {
+            {data1.map((drink, index) => {
                 return (
                     <motion.div
                         className= "cardContainer"
                         key={index}
                         whileHover={{ scale: 1.05 }}
                     >
-                    <Link as = {Link} className='cocktailText' to = {"/" + drink.idDrink}>
-                        <Card style={{ width: '18rem',height: '18rem' }}>
+                    <Link className='cocktailText' to = {"/" + drink.idDrink}>
+                        <Card style={{ width: '18rem',height: '20rem' }}>
                         <Card.Body>
+                            <button className = 'favIcon'><FontAwesomeIcon icon={faStar} /></button>
                             <Card.Text>
                                 <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
                             </Card.Text>     
@@ -111,8 +114,9 @@ const HomeCardDisplay = () => {
                         whileHover={{ scale: 1.05 }}
                     >
                     <Link className='cocktailText' to = {"/" + drink.idDrink}>
-                        <Card style={{ width: '18rem',height: '18rem' }}>
+                        <Card style={{ width: '18rem',height: '20rem' }}>
                         <Card.Body>
+                            <button className = 'favIcon'><FontAwesomeIcon icon={faStar} /></button>
                             <Card.Text>
                                 <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
                             </Card.Text>     
@@ -132,8 +136,9 @@ const HomeCardDisplay = () => {
                         whileHover={{ scale: 1.05 }}
                     >
                     <Link className='cocktailText' to = {"/" + drink.idDrink}>
-                        <Card style={{ width: '18rem',height: '18rem' }}>
+                        <Card style={{ width: '18rem',height: '20rem' }}>
                         <Card.Body>
+                            <button className = 'favIcon'><FontAwesomeIcon icon={faStar} /></button>
                             <Card.Text>
                                 <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
                             </Card.Text>     

@@ -88,11 +88,9 @@
     border-style: solid;
     box-shadow: 8px 8px 2px 1px #5E503F;
 }
-.cocktailContainer{
-    height: 500px;
-   margin: 0;
-}
+
 .cocktailImage{
+    
     border-radius: 25px;
     width: 70%;
 }
@@ -162,12 +160,24 @@
     font-size:25px;
     
 }
-.backButton{
+
+.backIcon{
+    font-size: 40px;
     background: transparent;
     border: none;
 }
-.backIcon{
+
+.favIcon{
+    margin: 5px 0px 0px 80%;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+}
+.favIcon-2{
+    background: transparent;
+    border: none;
     font-size: 40px;
+    margin: 0px 0 0px 85%;
 }
 
 @media screen and (max-width:769px){

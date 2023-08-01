@@ -5,7 +5,9 @@ import { useState, useEffect } from 'react';
 import axios from "axios"; 
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faStar } from '@fortawesome/free-solid-svg-icons'
+
+
 const CardDisplay = () => {
 
    let [data, setData] = useState(null)
@@ -60,8 +62,9 @@ const CardDisplay = () => {
                      whileHover={{ scale: 1.05 }}
                   >
                   <Link className='cocktailText' to = {"/" + drink.idDrink}>
-                     <Card style={{ width: '18rem',height: '18rem' }}>
+                     <Card style={{ width: '18rem',height: '20rem' }}>
                      <Card.Body>
+                           <button className = 'favIcon'><FontAwesomeIcon icon={faStar} /></button>
                            <Card.Text>
                               <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
                            </Card.Text>     
