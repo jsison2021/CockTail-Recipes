@@ -1,7 +1,6 @@
 import './App.css';
 
 import {
-  BrowserRouter,
   Routes,
   Route,
   Link,
@@ -10,6 +9,8 @@ import {
 
 import Home from './components/Home';
 import Saved from './components/Saved';
+import CockTail from './components/CockTail';
+import AllDrinks from './components/AllDrinks';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons'
@@ -40,7 +41,8 @@ function Mainbar() {
     <div>
       <div className='regularNav'>
         <NavLink as = {Link} className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")}  to = "/">Home</NavLink> 
-        <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to = "/Saved">Saved</NavLink> 
+        <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to = "/AllDrinks">All Drinks</NavLink> 
+        <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to = "/Saved">Favorites</NavLink> 
       </div>
             
       <div className='mobileNav'>
@@ -50,6 +52,7 @@ function Mainbar() {
           {menu?
           <div className='mobileMenu'>
              <NavLink as = {Link} className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} onClick={menuChange} to = "/">Home</NavLink> 
+             <NavLink as = {Link} className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} onClick={menuChange} to = "/AllDrinks">All Drinks</NavLink> 
              <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} onClick={menuChange}  to = "/Saved">Saved</NavLink> 
           </div> : <div></div>
           }
@@ -58,6 +61,8 @@ function Mainbar() {
       <AnimatePresence mode='wait'>
         <Routes key={location.pathname} location={location}>
           <Route path="/" exact element={<Home/>}/>
+          <Route path="/AllDrinks" exact element={<AllDrinks/>}/>
+          <Route path="/:id" exact element={<CockTail/>}/>
           <Route path="/Saved" exact element={<Saved/>}/>
         </Routes>
         </AnimatePresence>

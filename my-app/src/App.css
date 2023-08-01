@@ -2,13 +2,6 @@
     text-align: center;
 }
 
-.body{
-    background:linear-gradient(rgba(201, 214, 214, 0.5),transparent);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #456E68;
-    height: 100vh;
-    text-align: center;
-}
 
 /*
     Navbar
@@ -17,7 +10,7 @@
 .regularNav{
     display: flex;
     justify-content: center;
-    padding: 50px;
+    padding: 50px 0px 0px 0px;
     
 }
 
@@ -26,7 +19,7 @@
 }
 
 .barlinks{
-    color: #003E29;
+    color: #49111C;
     font-weight: bold;
     margin: 40px;
     font-size: 35px;
@@ -35,7 +28,7 @@
 }
 
 .barlinks-active{
-    color: #003E29;
+    color: #49111C;
     font-weight: bold;
     margin: 40px;
     font-size: 35px;
@@ -44,7 +37,7 @@
 }
 
 .barlinks:hover {
-    color: #003E29;
+    color: #49111C;
 }
 
 .barlinks::before {
@@ -55,7 +48,7 @@
     height: 2px;
     top: 90%;
     left: 0px;
-    background-color: #003E29;
+    background-color: #49111C;
     transform: scaleX(0);
     transition: transform 0.3s ease;
   
@@ -63,6 +56,118 @@
 
 .barlinks:hover::before {
     transform: scaleX(1);
+}
+
+/*
+    Card Container CSS
+*/
+.gridContainer{
+   display: flex;
+   justify-content: center
+}
+.grid {
+    justify-content: center;
+    min-height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+.cardContainer{
+    margin: 20px 70px 30px 70px;
+    border-radius: 25px;
+    border-style: solid;
+    box-shadow: 8px 8px 2px 1px #5E503F;
+}
+.cardContainer-2{
+    margin:0 20% 30px 20%;
+    padding: 20px;
+    border-radius: 25px;
+    height: fit-content;
+    text-align: left;
+    border-style: solid;
+    box-shadow: 8px 8px 2px 1px #5E503F;
+}
+.cocktailContainer{
+    height: 500px;
+   margin: 0;
+}
+.cocktailImage{
+    border-radius: 25px;
+    width: 70%;
+}
+
+.cocktailImage-2{
+
+    border-radius: 25px;
+    margin: 10px 0px 0px 50px;
+    height: 300px;
+    width: 300px;
+}
+.cocktailText{
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0A0908;
+}
+
+.cocktailText-2{
+   
+    margin: 30px 0px 0px 50px;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: underline;
+    color: #0A0908;
+}
+.cocktailText-3{
+   
+    margin: 30px 0px 0px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0A0908;
+}
+.cocktailText-4{
+   
+    margin: 0px 0px 0px 50px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #0A0908;
+}
+
+/*
+    Website CSS
+*/
+
+.pageHeader{
+    font-size: 50px;
+    font-weight: bold;
+
+}
+
+.searchBar{
+    background: transparent;
+    border-color: #0A0908;
+    border: none;
+    margin-bottom:30px;
+    border-bottom: 2px solid #49111C;
+    font-size: 30px
+}
+.searchBar:focus{ 
+    outline: none;
+   
+}
+.searchIcon{
+    color: #49111C;
+    font-size:25px;
+    
+}
+.backButton{
+    background: transparent;
+    border: none;
+}
+.backIcon{
+    font-size: 40px;
 }
 
 @media screen and (max-width:769px){
@@ -82,7 +187,7 @@
         display: inline-block;
         border: none;
         background-color: transparent;
-        color:#003E29;
+        color:#49111C;
         text-align: right;
         margin-right: 10px;
     }
@@ -99,7 +204,7 @@
         height: 100vh;
     }
     .barlinks{
-        color: #003E29;
+        color: #49111C;
         font-weight: bold;
         text-align: center;
         font-size: 15px;
@@ -108,7 +213,7 @@
     }
     
     .barlinks-active{
-        color: #003E29;
+        color: #49111C;
         font-weight: bold;
         text-align: center;
         font-size: 15px;
@@ -121,6 +226,52 @@
     }
     .barlinks:hover::before {
         transform: scaleX(1);
+    }
+    .searchBar{
+        background: transparent;
+        border-color: #0A0908;
+        border: none;
+        margin-bottom:30px;
+        border-bottom: 2px solid #49111C;
+        font-size: 20px
+    }
+    .cardContainer-2{
+        margin:0 5% 0 5%;
+        border-radius: 25px;
+        text-align: center;
+        border-style: solid;
+        box-shadow: 8px 8px 2px 1px #5E503F;
+    }
+
+    
+    .cocktailImage-2{
+        border-radius: 25px;
+        margin: 30px 25% 0px 25% ;
+        width: 50%;
+        height: 50%;
+    }
+    .cocktailText-2{
+        display: block;
+        margin: 30px 25% 0px 25%;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #0A0908;
+    }
+    .cocktailText-3{
+        display: block;
+        margin: 30px 25% 0px 25%;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #0A0908;
+    }
+    .cocktailText-4{
+        display: block;
+        margin: 30px 25% 0px 25%;
+        font-size: 20px;
+        text-decoration: none;
+        color: #0A0908;
     }
 } 
  
