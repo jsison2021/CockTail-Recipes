@@ -11,14 +11,16 @@ import Home from './components/Home';
 import Saved from './components/Saved';
 import CockTail from './components/CockTail';
 import AllDrinks from './components/AllDrinks';
-import GooglePic from './Google.png';
+
 import MenuAnimation from './components/Functions/MenuAnimation';
+
+import {auth} from './components/Functions/Firebase.js'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faX, faCircleUser,faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 import { AnimatePresence } from "framer-motion";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Mainbar() {
   
@@ -27,7 +29,7 @@ function Mainbar() {
 
   const [login, setLogin] = useState(false)
   const [arrow, setArrow] = useState(faAngleDown)
-  
+
   const location = useLocation();
   let menuChange = () =>{
     if (menu === true){
@@ -52,6 +54,10 @@ function Mainbar() {
     }
   }
 
+  useEffect(() => {
+    
+
+  }, auth)
   return (
 
     <div>
@@ -61,14 +67,11 @@ function Mainbar() {
         <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to = "/Saved">Favorites</NavLink>
         
         <button className='userIcon' onClick={dropDown}>
-          <FontAwesomeIcon icon={faCircleUser} /> 
+          {auth.currentUser ? <img className='profilePic' src = {auth.currentUser.photoURL} alt = "profile"></img> : <FontAwesomeIcon icon={faCircleUser} /> }
           <FontAwesomeIcon className = "downArrow" icon={arrow} />
           {login && 
            <MenuAnimation >
-            <div className = "dropDownMenu">
-              <p className='loginStatus'>Not Logged in</p>
-              <button className='loginButton'><img src={GooglePic} className= "googlePic" alt = "google"></img>Sign in with Google</button>
-              </div>
+           
             </MenuAnimation>
           }
         </button>
@@ -82,13 +85,12 @@ function Mainbar() {
           {menu?
           <div className='mobileMenu'>
             <button className='userIcon' onClick={dropDown}>
-              <FontAwesomeIcon icon={faCircleUser} /> 
+            {auth.currentUser ? <img className='profilePic' src = {auth.currentUser.photoURL} alt = "profile"></img> : <FontAwesomeIcon icon={faCircleUser} /> }
               <FontAwesomeIcon className = "downArrow" icon={arrow} />
               {login && 
-                <div className='dropDownMenu'>
-                  <p className='loginStatus'>Not Logged in</p>
-                  <button className='loginButton'><img src={GooglePic} className= "googlePic" alt = "google"></img>Sign in with Google</button>
-                </div>
+               <MenuAnimation >
+           
+               </MenuAnimation>
               }
             </button>
              <NavLink as = {Link} className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} onClick={menuChange} to = "/">Home</NavLink> 

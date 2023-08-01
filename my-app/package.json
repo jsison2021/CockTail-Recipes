@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "fa-icons": "^0.2.0",
+    "firebase": "^10.1.0",
     "framer-motion": "^10.15.0",
     "install": "^0.13.0",
     "npm": "^9.8.1",
