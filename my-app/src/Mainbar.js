@@ -56,8 +56,8 @@ function Mainbar() {
 
   useEffect(() => {
     
-
-  }, auth)
+    {auth.currentUser ? <img className='profilePic' src = {auth.currentUser.photoURL} alt = "profile"></img> : <FontAwesomeIcon icon={faCircleUser} /> }
+  }, auth.currentUser)
   return (
 
     <div>

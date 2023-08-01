@@ -23,6 +23,7 @@ const MenuAnimation = () => {
 
         console.log("Login Successful");
         console.log(auth.currentUser)
+        navigate('/')
     })
     .catch((err) => {
       console.log(err);
