@@ -17,7 +17,48 @@
 .mobileNav{
     display: none;
 }
+.userIcon{
+    background: transparent;
+    border: none;
+    color: #49111C;
+    margin: 0px 0px 0px 50px;
+    font-size: 50px;
+}
+.downArrow{
+    background: transparent;
+    border: none;
+    color: #49111C;
+    margin: 0px 0px 0px 0px;
+    font-size: 25px;
+}
+.dropDownMenu{
+    position: fixed;
+    padding: 10px 10px 30px 10px;
+    border-style: solid;
+    border-radius: 10px;
+    margin: 0;
+}
 
+.loginStatus{
+    padding: 0px;
+    margin: 0px 0px 10px 0px ;
+    font-weight: bold;
+    font-size: 20px;
+}
+.loginButton{
+    border-style: solid;
+    background-color: white;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+.googlePic{
+    margin-right: 10px;
+    height: 15px;
+    width: 15px;
+}
 .barlinks{
     color: #49111C;
     font-weight: bold;
@@ -180,6 +221,8 @@
     margin: 0px 0 0px 85%;
 }
 
+
+
 @media screen and (max-width:769px){
     /*
         Mobile Navigation
@@ -282,6 +325,31 @@
         font-size: 20px;
         text-decoration: none;
         color: #0A0908;
+    }
+    .userIcon{
+        background: transparent;
+        border: none;
+        color: #49111C;
+        margin: 0px 0px 0px 0px;
+        text-align: center;
+        font-size: 30px;
+    }
+    .downArrow{
+        background: transparent;
+        border: none;
+        color: #49111C;
+        text-align: center;
+        margin: 0px 0px 0px 0px;
+        font-size: 15px;
+    }
+    .dropDownMenu{
+        position: relative;
+        padding: 10px 10px 30px 10px;
+        left: 25%;
+        width: 50%;
+        border-style: solid;
+        border-radius: 10px;
+        margin: 0;
     }
 } 
  

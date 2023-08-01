@@ -17,7 +17,6 @@ const CardDisplay = () => {
       if (e === " " || e === undefined ){
          e = "a";
       }
-      console.log(e)
       axios
       .get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + e)
       .then(function (response) {

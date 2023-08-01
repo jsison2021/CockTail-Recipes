@@ -26,7 +26,6 @@ function CockTail(){
       .get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + currentCocktail)
       .then(function (response) {
          // handle success
-         console.log(response.data.drinks)
          setData(response.data.drinks)
       })
       .catch(function (error) {
