@@ -1,3 +1,4 @@
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
@@ -9,13 +10,13 @@ import {getAuth,GoogleAuthProvider} from 'firebase/auth';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBHYAGCUxaLA4E8DJTXxBFRaPRNeb-uPCU",
-    authDomain: "cocktail-db-49928.firebaseapp.com",
-    projectId: "cocktail-db-49928",
-    storageBucket: "cocktail-db-49928.appspot.com",
-    messagingSenderId: "285308371834",
-    appId: "1:285308371834:web:cddbc952b82aeefc030cc3",
-    measurementId: "G-D49M1JCPW0"
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AuthDomain,
+    projectId: process.env.projectId,
+    storageBucket: process.env.storageBucket,
+    messagingSenderId: process.env.messagingSenderId,
+    appId: process.env.appId,
+    measurementId: process.env.measurementId
   };
   
 
