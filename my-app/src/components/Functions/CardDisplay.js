@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass, faStar } from '@fortawesome/free-solid-svg-icons'
 
-
+import AddFavorite from "./AddFavorite"
 const CardDisplay = () => {
 
    let [data, setData] = useState(null)
@@ -63,7 +63,7 @@ const CardDisplay = () => {
                   <Link className='cocktailText' to = {"/" + drink.idDrink}>
                      <Card style={{ width: '18rem',height: '20rem' }}>
                      <Card.Body>
-                           <button className = 'favIcon'><FontAwesomeIcon icon={faStar} /></button>
+                           <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb}></AddFavorite>
                            <Card.Text>
                               <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
                            </Card.Text>     

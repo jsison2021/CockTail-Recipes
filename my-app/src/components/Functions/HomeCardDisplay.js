@@ -4,9 +4,8 @@ import { Card } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import axios from "axios"; 
 import { motion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
 
+import AddFavorite from './AddFavorite'
 const HomeCardDisplay = () => {
     let [data1, setData1] = useState(null)
     let [data2, setData2] = useState(null)
@@ -93,7 +92,7 @@ const HomeCardDisplay = () => {
                     <Link className='cocktailText' to = {"/" + drink.idDrink}>
                         <Card style={{ width: '18rem',height: '20rem' }}>
                         <Card.Body>
-                            <button className = 'favIcon'><FontAwesomeIcon icon={faStar} /></button>
+                            <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb}></AddFavorite>
                             <Card.Text>
                                 <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
                             </Card.Text>     
@@ -116,7 +115,7 @@ const HomeCardDisplay = () => {
                     <Link className='cocktailText' to = {"/" + drink.idDrink}>
                         <Card style={{ width: '18rem',height: '20rem' }}>
                         <Card.Body>
-                            <button className = 'favIcon'><FontAwesomeIcon icon={faStar} /></button>
+                            <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb}></AddFavorite>
                             <Card.Text>
                                 <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
                             </Card.Text>     
@@ -138,7 +137,7 @@ const HomeCardDisplay = () => {
                     <Link className='cocktailText' to = {"/" + drink.idDrink}>
                         <Card style={{ width: '18rem',height: '20rem' }}>
                         <Card.Body>
-                            <button className = 'favIcon'><FontAwesomeIcon icon={faStar} /></button>
+                            <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb}></AddFavorite>
                             <Card.Text>
                                 <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
                             </Card.Text>     

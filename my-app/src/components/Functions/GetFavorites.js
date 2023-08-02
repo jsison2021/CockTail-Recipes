@@ -2,57 +2,36 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from "react-bootstrap";
 import { useState, useEffect } from 'react';
-import axios from "axios"; 
+ 
 import { motion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass, faStar } from '@fortawesome/free-solid-svg-icons'
-
-import {  doc, getDoc  } from "firebase/firestore";
-import {db, auth} from './Firebase';
+import {  collection, getDocs  } from "firebase/firestore";
+import {db} from './Firebase';
+import AddFavorite from "./AddFavorite"
 
 const GetDatabase = () => {
 
-    const gettingList = async () => {
-        const docRef = doc(db, "Users/"+ auth.currentUser.uid);
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-        } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
-        }
-    }
     let [data, setData] = useState(null)
-    const [error, setError] = useState(null)
- 
-    /** 
-    let gettingInfo = () =>{
-    
-       axios
-       .get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + e)
-       .then(function (response) {
-          // handle success
-          setData(response.data.drinks)
-       })
-       .catch(function (error) {
-          // handle error
-          if (error.response.status === 400) {
-             console.log(error)
-             setError('Cant find record')
-          } else {
-             setError('Unexpected Error')
-          }
-       })
-       .then(function () {
-          // always executed
-       })
-       
-    }
-    */
-     
+    let newObject = window.localStorage.getItem("currentUser");
+    let currentUser = JSON.parse(newObject)
+    let dataArray = []
+
+   const gettingList = async (e) => {
+      if (currentUser){
+         const querySnapshot = await getDocs(collection(db, "Users/", currentUser.uid , "/Favorites"));
+         querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            dataArray.push(doc.data())
+            console.log(doc.data());
+         });
+         setData(dataArray);
+      }
+   } 
+
+   const test = () =>{
+      console.log()
+   }
+   
      useEffect(() => {
-       //gettingInfo()
        gettingList()
      }, [])
      
@@ -72,7 +51,7 @@ const GetDatabase = () => {
                    <Link className='cocktailText' to = {"/" + drink.idDrink}>
                       <Card style={{ width: '18rem',height: '20rem' }}>
                       <Card.Body>
-                            <button className = 'favIcon'><FontAwesomeIcon icon={faStar} /></button>
+                              <AddFavorite onClick = {gettingList} strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb}></AddFavorite>
                             <Card.Text>
                                <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
                             </Card.Text>     
@@ -87,7 +66,11 @@ const GetDatabase = () => {
           </div>
           </>
        )}
-       {error && <p>Error with the data</p>}
+       {!data && !currentUser && (<>
+            <p>Sign in to add your favorite drinks!</p>
+       </>)}
+
+
     </div>
    );
  };

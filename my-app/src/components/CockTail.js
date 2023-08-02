@@ -6,6 +6,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft,faStar } from '@fortawesome/free-solid-svg-icons'
 
+import AddFavorite from "./Functions/AddFavorite"
 
 function CockTail(){
 
@@ -58,7 +59,7 @@ function CockTail(){
                   <Card className="cardContainer-2">
                      <Card.Body>
                            <button className = "backIcon" onClick={goBack}><FontAwesomeIcon icon={faArrowLeft} /></button>
-                           <button className = 'favIcon-2'><FontAwesomeIcon icon={faStar} /></button>
+                           <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb}></AddFavorite>
                            <Card.Text>
                               <img className = 'cocktailImage-2' src = {drink.strDrinkThumb}  alt = "drink"></img>
                            </Card.Text>     

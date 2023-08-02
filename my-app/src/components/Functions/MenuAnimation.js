@@ -5,8 +5,6 @@ import {auth, provider} from './Firebase.js'
 import{signInWithPopup, signOut} from 'firebase/auth';
 import{useNavigate} from 'react-router-dom';
 
-import { useState, useEffect } from 'react';
-
 const animations = {
   initial: { opacity: 0, },
   animate: { opacity: 1},

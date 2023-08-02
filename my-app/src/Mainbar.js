@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import Home from './components/Home';
-import Saved from './components/Saved';
+import Favorites from './components/Favorites';
 import CockTail from './components/CockTail';
 import AllDrinks from './components/AllDrinks';
 
@@ -25,7 +25,6 @@ import { useEffect, useState } from 'react';
 function Mainbar() {
   let newObject = window.localStorage.getItem("currentUser");
   let currentUser = JSON.parse(newObject)
-  console.log(currentUser);
   
   const [menu,setMenu] = useState(false)
   const [symbol,setSymbol] = useState(faBars)
@@ -67,7 +66,7 @@ function Mainbar() {
       <div className='regularNav'>
         <NavLink as = {Link} className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")}  to = "/">Home</NavLink> 
         <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to = "/AllDrinks">All Drinks</NavLink> 
-        <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to = "/Saved">Favorites</NavLink>
+        <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to = "/Favorites">Favorites</NavLink>
         
         <button className='userIcon' onClick={dropDown}>
           {currentUser ? <img className='profilePic' src = {currentUser.photoURL} alt = "profile"></img> : <FontAwesomeIcon icon={faCircleUser} /> }
@@ -98,7 +97,7 @@ function Mainbar() {
             </button>
              <NavLink as = {Link} className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} onClick={menuChange} to = "/">Home</NavLink> 
              <NavLink as = {Link} className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} onClick={menuChange} to = "/AllDrinks">All Drinks</NavLink> 
-             <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} onClick={menuChange}  to = "/Saved">Favorites</NavLink> 
+             <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} onClick={menuChange}  to = "/Favorites">Favorites</NavLink> 
             
           </div> : <div></div>
           }
@@ -109,7 +108,7 @@ function Mainbar() {
           <Route path="/" exact element={<Home/>}/>
           <Route path="/AllDrinks" exact element={<AllDrinks/>}/>
           <Route path="/:id" exact element={<CockTail/>}/>
-          <Route path="/Saved" exact element={<Saved/>}/>
+          <Route path="/Favorites" exact element={<Favorites/>}/>
         </Routes>
         </AnimatePresence>
       </div>
