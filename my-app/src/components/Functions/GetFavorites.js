@@ -28,7 +28,7 @@ const GetDatabase = () => {
    } 
 
    const test = () =>{
-      console.log()
+      console.log("test")
    }
    
      useEffect(() => {
@@ -51,7 +51,7 @@ const GetDatabase = () => {
                    <Link className='cocktailText' to = {"/" + drink.idDrink}>
                       <Card style={{ width: '18rem',height: '20rem' }}>
                       <Card.Body>
-                              <AddFavorite onClick = {gettingList} strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb}></AddFavorite>
+                              <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb}></AddFavorite>
                             <Card.Text>
                                <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
                             </Card.Text>     

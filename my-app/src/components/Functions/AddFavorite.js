@@ -19,14 +19,11 @@ const AddDatabase = (props) => {
           dataArray.push(doc.data().idDrink)
         });
         
-
-        console.log(dataArray);
-
         if (dataArray.includes(props.idDrink) == true){
             console.log("duplicate")
             await deleteDoc(doc(db, "Users", currentUser.uid , "Favorites", props.strDrink));
         }
-        else{
+        if (dataArray.includes(props.idDrink) == false){
             try {  
                 const docRef = await setDoc(doc(db, "Users", currentUser.uid , "Favorites", props.strDrink), {
                     idDrink: props.idDrink,

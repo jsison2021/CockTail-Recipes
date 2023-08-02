@@ -221,15 +221,17 @@
 
 .favIcon{
     margin: 5px 0px 0px 80%;
+    color: #49111C;
     font-size: 20px;
     background: transparent;
     border: none;
 }
 .favIcon-2{
+    margin: 5px 0px 0px 80%;
+    color: yellow;
+    font-size: 20px;
     background: transparent;
     border: none;
-    font-size: 40px;
-    margin: 0px 0 0px 85%;
 }
 
 
