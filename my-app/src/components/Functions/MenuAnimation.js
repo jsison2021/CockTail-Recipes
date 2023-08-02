@@ -20,7 +20,7 @@ const MenuAnimation = () => {
 
   const signInWithGoogle = () => {
     signInWithPopup(auth,provider).then(() =>{
-
+        localStorage.setItem("currentUser",JSON.stringify(auth.currentUser));
         console.log("Login Successful");
         console.log(auth.currentUser)
         navigate('/')
@@ -33,7 +33,7 @@ const MenuAnimation = () => {
   const logout = () => {
     signOut(auth)
       .then(() => {
-       
+        localStorage.clear()
         navigate('/')
       })
       .catch((err) => {

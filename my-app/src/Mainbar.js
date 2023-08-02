@@ -23,6 +23,9 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from 'react';
 
 function Mainbar() {
+  let newObject = window.localStorage.getItem("currentUser");
+  let currentUser = JSON.parse(newObject)
+  console.log(currentUser);
   
   const [menu,setMenu] = useState(false)
   const [symbol,setSymbol] = useState(faBars)
@@ -56,8 +59,8 @@ function Mainbar() {
 
   useEffect(() => {
     
-    {auth.currentUser ? <img className='profilePic' src = {auth.currentUser.photoURL} alt = "profile"></img> : <FontAwesomeIcon icon={faCircleUser} /> }
-  }, auth.currentUser)
+ 
+  }, )
   return (
 
     <div>
@@ -67,7 +70,7 @@ function Mainbar() {
         <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to = "/Saved">Favorites</NavLink>
         
         <button className='userIcon' onClick={dropDown}>
-          {auth.currentUser ? <img className='profilePic' src = {auth.currentUser.photoURL} alt = "profile"></img> : <FontAwesomeIcon icon={faCircleUser} /> }
+          {currentUser ? <img className='profilePic' src = {currentUser.photoURL} alt = "profile"></img> : <FontAwesomeIcon icon={faCircleUser} /> }
           <FontAwesomeIcon className = "downArrow" icon={arrow} />
           {login && 
            <MenuAnimation >
