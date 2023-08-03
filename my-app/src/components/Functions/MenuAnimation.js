@@ -20,7 +20,7 @@ const MenuAnimation = () => {
     signInWithPopup(auth,provider).then(() =>{
         localStorage.setItem("currentUser",JSON.stringify(auth.currentUser));
         console.log("Login Successful");
-      navigate('/')
+      navigate('/Favorites')
       window.location.reload(); 
     })
     .catch((err) => {
