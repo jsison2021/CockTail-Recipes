@@ -8,6 +8,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import {  collection, getDocs  } from "firebase/firestore";
 import {db} from './Functions/Firebase';
 
+
 function AllDrinks(){
 
    let newObject = window.localStorage.getItem("currentUser");
@@ -15,9 +16,10 @@ function AllDrinks(){
    let [data, setData] = useState(null)
    let [isFav, setIsFav] = useState(null)
    const [error, setError] = useState(null)
+   let dataArray = []
 
    let gettingInfo = async (e) =>{
-      let dataArray = []
+      
 
       if (currentUser){
          const querySnapshot = await getDocs(collection(db, "Users/", currentUser.uid , "/Favorites"));
@@ -28,7 +30,7 @@ function AllDrinks(){
          setIsFav(dataArray);
       }
    
-      if (e === " " || e === undefined ){
+      if (e === "" || e === undefined ){
          e = "a";
       }
       axios
@@ -54,9 +56,8 @@ function AllDrinks(){
     
     useEffect(() => {
       gettingInfo()
- 
+   
     }, [])
-
     
    return(
 

@@ -21,6 +21,7 @@ const MenuAnimation = () => {
         localStorage.setItem("currentUser",JSON.stringify(auth.currentUser));
         console.log("Login Successful");
       navigate('/')
+      window.location.reload(); 
     })
     .catch((err) => {
       console.log(err);
@@ -31,7 +32,9 @@ const MenuAnimation = () => {
     signOut(auth)
       .then(() => {
         localStorage.clear()
+        
         navigate('/')
+        window.location.reload(); 
       })
       .catch((err) => {
         console.log(err)

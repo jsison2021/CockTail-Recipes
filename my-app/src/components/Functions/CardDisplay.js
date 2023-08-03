@@ -6,6 +6,7 @@ import AddFavorite from './AddFavorite';
 
 const CardDisplay = (props) => {
 
+  
   return(
    <div className='gridContainer'>
       <div className='grid'>
