@@ -371,8 +371,7 @@
     .dropDownMenu{
         position: relative;
         padding: 10px 10px 30px 10px;
-        left: 25%;
-        width: 50%;
+        width:100%;
         border-style: solid;
         border-radius: 10px;
         margin: 0;
