@@ -5,15 +5,29 @@ import { useState, useEffect } from 'react';
 import axios from "axios"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-
+import {  collection, getDocs  } from "firebase/firestore";
+import {db} from './Functions/Firebase';
 
 function AllDrinks(){
 
-   
+   let newObject = window.localStorage.getItem("currentUser");
+   let currentUser = JSON.parse(newObject)
    let [data, setData] = useState(null)
+   let [isFav, setIsFav] = useState(null)
    const [error, setError] = useState(null)
 
-   let gettingInfo = (e) =>{
+   let gettingInfo = async (e) =>{
+      let dataArray = []
+
+      if (currentUser){
+         const querySnapshot = await getDocs(collection(db, "Users/", currentUser.uid , "/Favorites"));
+         querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            dataArray.push(doc.data().idDrink)
+         });
+         setIsFav(dataArray);
+      }
+   
       if (e === " " || e === undefined ){
          e = "a";
       }
@@ -42,6 +56,8 @@ function AllDrinks(){
       gettingInfo()
  
     }, [])
+
+    
    return(
 
       <AnimatedPage>       
@@ -51,11 +67,13 @@ function AllDrinks(){
                onChange={(e) => gettingInfo(e.target.value)}
                >
          </input>
-         <div className='gridContainer'>
-            <div className='grid'>
-               {data && data.length > 0 && data.map(CardDisplay)}
-            </div>
-         </div>
+        
+         {data && data.length > 0 && ( <>
+            <CardDisplay data = {data} fav = {isFav}></CardDisplay>
+         </>)}
+
+         {error && <p></p>}
+        
          
       </AnimatedPage>
    )

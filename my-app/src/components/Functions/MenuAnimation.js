@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import GooglePic from './Google.png';
-
 import {auth, provider} from './Firebase.js'
 import{signInWithPopup, signOut} from 'firebase/auth';
 import{useNavigate} from 'react-router-dom';
+
 
 const animations = {
   initial: { opacity: 0, },
@@ -20,8 +20,7 @@ const MenuAnimation = () => {
     signInWithPopup(auth,provider).then(() =>{
         localStorage.setItem("currentUser",JSON.stringify(auth.currentUser));
         console.log("Login Successful");
-        console.log(auth.currentUser)
-        navigate('/')
+      navigate('/')
     })
     .catch((err) => {
       console.log(err);

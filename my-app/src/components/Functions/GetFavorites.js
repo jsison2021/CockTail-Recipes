@@ -1,19 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card } from "react-bootstrap";
 import { useState, useEffect } from 'react';
- 
-import { motion } from 'framer-motion';
 import {  collection, getDocs  } from "firebase/firestore";
 import {db} from './Firebase';
-import AddFavorite from "./AddFavorite"
+import CardDisplay from "./CardDisplay"
 
 const GetDatabase = () => {
 
     let [data, setData] = useState(null)
     let newObject = window.localStorage.getItem("currentUser");
     let currentUser = JSON.parse(newObject)
+    let [isFav, setIsFav] = useState(null)
     let dataArray = []
+    let favArray = []
 
    const gettingList = async (e) => {
       if (currentUser){
@@ -21,53 +19,29 @@ const GetDatabase = () => {
          querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
             dataArray.push(doc.data())
-            console.log(doc.data());
+            favArray.push(doc.data().idDrink)
          });
          setData(dataArray);
+         setIsFav(favArray)
       }
    } 
 
-   const test = () =>{
-      console.log("test")
-   }
-   
-     useEffect(() => {
-       gettingList()
-     }, [])
+   useEffect(() => {
+      
+      gettingList()
+   }, [])
      
    return (
     <div>
-       {data && data.length > 0 && (
-             <>
-             <div className='gridContainer'>
-             <div className='grid'>
-                {data.map((drink, index) => {
-                return (
-                   <motion.div
-                      className= "cardContainer"
-                      key={index}
-                      whileHover={{ scale: 1.05 }}
-                   >
-                   <Link className='cocktailText' to = {"/" + drink.idDrink}>
-                      <Card style={{ width: '18rem',height: '20rem' }}>
-                      <Card.Body>
-                              <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb}></AddFavorite>
-                            <Card.Text>
-                               <img className = 'cocktailImage' src = {drink.strDrinkThumb}  alt = "drink"></img>
-                            </Card.Text>     
-                            <Card.Text className='cocktailText' >{drink.strDrink}</Card.Text>     
-                      </Card.Body>
-                      </Card>
-                   </Link>
-                   </motion.div>
-                );
-                })}
-             </div>
-          </div>
-          </>
-       )}
+      {data && data.length > 0 && ( <>
+         <CardDisplay data = {data}  fav = {isFav}></CardDisplay>
+      </>)}
        {!data && !currentUser && (<>
-            <p>Sign in to add your favorite drinks!</p>
+            <p className='favText'>Sign in to add your favorite drinks!</p>
+       </>)}
+
+       {data && data.length  === 0 && currentUser && (<>
+            <p className='favText'>Start adding your favorite drinks!</p>
        </>)}
 
 

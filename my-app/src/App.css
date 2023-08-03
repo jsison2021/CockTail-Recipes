@@ -127,6 +127,7 @@
 
 .cardContainer{
     margin: 20px 70px 30px 70px;
+    padding:  0px 20px 40px 20px;
     border-radius: 25px;
     border-style: solid;
     box-shadow: 8px 8px 2px 1px #5E503F;
@@ -142,10 +143,11 @@
 }
 
 .cocktailImage{
-    
+
     border-radius: 25px;
     width: 70%;
 }
+
 
 .cocktailImage-2{
 
@@ -155,7 +157,8 @@
     width: 300px;
 }
 .cocktailText{
-    font-size: 20px;
+    font-size: 25px;
+    margin: 0px;
     font-weight: bold;
     text-decoration: none;
     color: #0A0908;
@@ -194,6 +197,11 @@
     font-weight: bold;
 
 }
+.favText{
+    font-size: 30px;
+    font-weight: bold;
+
+}
 
 .searchBar{
     background: transparent;
@@ -220,16 +228,18 @@
 }
 
 .favIcon{
+    display: inline-block;
     margin: 5px 0px 0px 80%;
     color: #49111C;
-    font-size: 20px;
+    font-size: 30px;
     background: transparent;
     border: none;
 }
 .favIcon-2{
+    display: inline-block;
     margin: 5px 0px 0px 80%;
-    color: yellow;
-    font-size: 20px;
+    color: rgb(192, 192, 30);
+    font-size: 30px;
     background: transparent;
     border: none;
 }
@@ -254,13 +264,15 @@
         border: none;
         background-color: transparent;
         color:#49111C;
+        font-size: 20px;
         text-align: right;
         margin-right: 10px;
     }
     .menuButton{
         border: none;
         background-color: transparent;
-        color:#0C243C;
+        color:#49111C;
+        font-size: 20px;
         text-align: right;
         margin: 20px 20px 0px 0px;
     }
@@ -273,7 +285,7 @@
         color: #49111C;
         font-weight: bold;
         text-align: center;
-        font-size: 15px;
+        font-size: 20px;
         text-decoration: none;
      
     }
@@ -282,7 +294,7 @@
         color: #49111C;
         font-weight: bold;
         text-align: center;
-        font-size: 15px;
+        font-size: 20px;
         text-decoration: underline;
      
     }
@@ -343,9 +355,9 @@
         background: transparent;
         border: none;
         color: #49111C;
-        margin: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 20px;
         text-align: center;
-        font-size: 30px;
+        font-size: 100px;
     }
     .downArrow{
         background: transparent;
@@ -355,6 +367,7 @@
         margin: 0px 0px 0px 0px;
         font-size: 15px;
     }
+
     .dropDownMenu{
         position: relative;
         padding: 10px 10px 30px 10px;
@@ -363,6 +376,15 @@
         border-style: solid;
         border-radius: 10px;
         margin: 0;
+    }
+    .profilePic{
+        background: transparent;
+        border-style: solid;
+        border-radius: 100%;
+        color: #49111C;
+        width: 100px;
+        height: 100px;
+        margin: 0px 0px 0px 0px;
     }
 } 
  

@@ -4,25 +4,38 @@ import { Card } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import axios from "axios"; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft,faStar } from '@fortawesome/free-solid-svg-icons'
-
-import AddFavorite from "./Functions/AddFavorite"
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import AddFavorite from './Functions/AddFavorite';
+import { collection, setDoc, getDocs, deleteDoc, doc  } from "firebase/firestore";
+import {db} from './Functions/Firebase';
 
 function CockTail(){
-
+   let newObject = window.localStorage.getItem("currentUser");
+   let currentUser = JSON.parse(newObject)
    const location = useLocation();
 
    const currentCocktail = location.pathname.replace("/", "");   
    
    let [data, setData] = useState(null)
+   let [isFav, setIsFav] = useState(null)
+
    const [error, setError] = useState(null)
    const navigate = useNavigate();
 	const goBack = () => {
 		navigate(-1);
 	}
 
-   let gettingInfo = () =>{
-     
+   let gettingInfo = async() =>{
+     let dataArray = []
+
+      if (currentUser){
+         const querySnapshot = await getDocs(collection(db, "Users/", currentUser.uid , "/Favorites"));
+         querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            dataArray.push(doc.data().idDrink)
+         });
+         setIsFav(dataArray);
+      }
       axios
       .get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + currentCocktail)
       .then(function (response) {
@@ -58,8 +71,9 @@ function CockTail(){
             
                   <Card className="cardContainer-2">
                      <Card.Body>
+                          
                            <button className = "backIcon" onClick={goBack}><FontAwesomeIcon icon={faArrowLeft} /></button>
-                           <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb}></AddFavorite>
+                           {isFav && isFav.includes(drink.idDrink) ? <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb} isFav = {true}></AddFavorite>: <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb} isFav = {false}></AddFavorite>}
                            <Card.Text>
                               <img className = 'cocktailImage-2' src = {drink.strDrinkThumb}  alt = "drink"></img>
                            </Card.Text>     
