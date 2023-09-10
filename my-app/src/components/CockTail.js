@@ -12,9 +12,10 @@ import {db} from './Functions/Firebase';
 function CockTail(){
    let newObject = window.localStorage.getItem("currentUser");
    let currentUser = JSON.parse(newObject)
+   
    const location = useLocation();
 
-   const currentCocktail = location.pathname.replace("/", "");   
+   const currentCocktail = location.state;   
    
    let [data, setData] = useState(null)
    let [isFav, setIsFav] = useState(null)
@@ -37,7 +38,7 @@ function CockTail(){
          setIsFav(dataArray);
       }
       axios
-      .get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + currentCocktail)
+      .get('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + currentCocktail.idDrink)
       .then(function (response) {
          // handle success
          setData(response.data.drinks)

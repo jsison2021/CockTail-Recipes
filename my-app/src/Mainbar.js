@@ -106,9 +106,11 @@ function Mainbar() {
       <AnimatePresence mode='wait'>
         <Routes key={location.pathname} location={location}>
           <Route path="/" exact element={<Home/>}/>
-          <Route path="/AllDrinks" exact element={<AllDrinks/>}/>
           <Route path="/:id" exact element={<CockTail/>}/>
+          <Route path="/AllDrinks" exact element={<AllDrinks/>}/>
+          <Route path="/AllDrinks/:id" exact element={<CockTail/>}/>
           <Route path="/Favorites" exact element={<Favorites/>}/>
+          <Route path="/Favorites/:id" exact element={<CockTail/>}/>
         </Routes>
         </AnimatePresence>
       </div>

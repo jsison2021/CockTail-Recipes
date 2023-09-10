@@ -3,10 +3,23 @@ import { Link } from 'react-router-dom';
 import { Card } from "react-bootstrap";
 import { motion } from 'framer-motion';
 import AddFavorite from './AddFavorite';
+import{useLocation} from 'react-router-dom';
+import { useState } from 'react';
 
 const CardDisplay = (props) => {
 
   
+const [nav,setNav] = useState("")
+const location = useLocation();
+
+if (location.pathname === "/"){
+   
+}
+
+if(!location.pathname === "/"){
+   setNav(location.pathname + "/")
+}
+
   return(
    <div className='gridContainer'>
       <div className='grid'>
@@ -17,7 +30,7 @@ const CardDisplay = (props) => {
                      key={index}
                      whileHover={{ scale: 1.05 }}
                >
-               <Link className='cocktailText' to = {"/" + drink.idDrink}>
+               <Link className='cocktailText' to = {nav + drink.strDrink} state={drink}>
                      <Card style={{ width: '18rem',height: '20rem' }}>
                      <Card.Body>
                         {props.fav && props.fav.includes(drink.idDrink) ? 

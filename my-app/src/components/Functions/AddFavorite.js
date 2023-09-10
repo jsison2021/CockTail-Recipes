@@ -4,18 +4,31 @@ import {db} from './Firebase';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import{useNavigate} from 'react-router-dom';
+import{useNavigate,useLocation} from 'react-router-dom';
+import { useState } from 'react';
+
 
 
 const AddFavorite = (props) => {
     let newObject = window.localStorage.getItem("currentUser");
     let currentUser = JSON.parse(newObject)
     let navigate = useNavigate();
+    const location = useLocation();
 
+    const [isFav,setisFav] = useState(props.isFav)
+
+    
     const addFav = async (e) => {
         e.preventDefault();  
         let dataArray = []
-        
+
+        if (isFav){
+            setisFav(false)
+        }
+      
+        if (!isFav){
+            setisFav(true)
+        }
         if (currentUser){
             const querySnapshot = await getDocs(collection(db, "Users/", currentUser.uid , "/Favorites"));
             querySnapshot.forEach((doc) => {
@@ -42,9 +55,11 @@ const AddFavorite = (props) => {
                     console.error("Error adding document: ", e);
                 }
             }
-            window.location.reload(); 
+            if (location.pathname === ('/Favorites')){
+               window.location.reload()
+            }
          
-        } navigate('/')
+        }
         if (!currentUser){
             navigate('/Favorites')
         }
@@ -53,7 +68,7 @@ const AddFavorite = (props) => {
   return (
     <div>
         
-        {props.isFav ? <button className = 'favIcon-2' onClick={addFav}><FontAwesomeIcon icon={faStar} /></button> : <button className = 'favIcon' onClick={addFav}><FontAwesomeIcon icon={faStar} /></button>}
+        {isFav ? <button className = {"favIcon-2"} onClick={addFav}><FontAwesomeIcon icon={faStar} /></button> : <button className = {"favIcon"} onClick={addFav}><FontAwesomeIcon icon={faStar} /></button>}
     
     </div>
   );
