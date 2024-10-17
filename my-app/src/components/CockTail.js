@@ -73,8 +73,27 @@ function CockTail(){
                   <Card className="cardContainer-2">
                      <Card.Body>
                           
-                           <button className = "backIcon" onClick={goBack}><FontAwesomeIcon icon={faArrowLeft} /></button>
-                           {isFav && isFav.includes(drink.idDrink) ? <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb} isFav = {true}></AddFavorite>: <AddFavorite strDrink = {drink.strDrink} idDrink = {drink.idDrink} strDrinkThumb = {drink.strDrinkThumb} isFav = {false}></AddFavorite>}
+                           <div className="icon-container">
+                              <button className="backIcon" onClick={goBack}>
+                                 <FontAwesomeIcon icon={faArrowLeft} />
+                              </button>
+                              {isFav && isFav.includes(drink.idDrink) ? (
+                                 <AddFavorite
+                                    strDrink={drink.strDrink}
+                                    idDrink={drink.idDrink}
+                                    strDrinkThumb={drink.strDrinkThumb}
+                                    isFav={true}
+                                 ></AddFavorite>
+                              ) : (
+                                 <AddFavorite
+                                    strDrink={drink.strDrink}
+                                    idDrink={drink.idDrink}
+                                    strDrinkThumb={drink.strDrinkThumb}
+                                    isFav={false}
+                                 ></AddFavorite>
+                              )}
+                           </div>
+
                            <Card.Text>
                               <img className = 'cocktailImage-2' src = {drink.strDrinkThumb}  alt = "drink"></img>
                            </Card.Text>     

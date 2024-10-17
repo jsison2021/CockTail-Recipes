@@ -9,9 +9,7 @@
 
 .regularNav{
     display: flex;
-    justify-content: center;
-    padding: 50px 0px 0px 0px;
-    
+    justify-content: space-between;    
 }
 
 .mobileNav{
@@ -21,8 +19,8 @@
     background: transparent;
     border: none;
     color: #49111C;
-    margin: 0px 0px 0px 50px;
-    font-size: 50px;
+    margin: 40px 40px 0px 50px;
+    font-size: 40px;
 }
 
 .profilePic{
@@ -30,9 +28,8 @@
     border-style: solid;
     border-radius: 100%;
     color: #49111C;
-  
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 .downArrow{
     background: transparent;
@@ -44,10 +41,10 @@
 .dropDownMenu{
     position: absolute;
     background-color: #A9927D;
-    padding: 10px 10px 30px 10px;
+    padding: 20px;
     border-style: solid;
     border-radius: 10px;
-    margin: 0;
+    margin: 10px -60px 0px -200px;
 }
 
 .loginStatus{
@@ -70,11 +67,19 @@
     height: 15px;
     width: 15px;
 }
-.barlinks{
-    color: #49111C;
+
+.navTitle{
+    color: #000000;
     font-weight: bold;
     margin: 40px;
     font-size: 35px;
+    text-decoration: none;
+}
+.barlinks{
+    color: #49111C;
+    font-weight: bold;
+    margin: 50px 15px 0px 15px;
+    font-size: 25px;
     text-decoration: none;
  
 }
@@ -82,8 +87,8 @@
 .barlinks-active{
     color: #49111C;
     font-weight: bold;
-    margin: 40px;
-    font-size: 35px;
+    margin: 50px 15px 0px 15px;
+    font-size: 25px;
     text-decoration: underline;
  
 }
@@ -98,7 +103,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    top: 90%;
+    top: 45%;
     left: 0px;
     background-color: #49111C;
     transform: scaleX(0);
@@ -113,25 +118,40 @@
 /*
     Card Container CSS
 */
-.gridContainer{
-   display: flex;
-   justify-content: center
-}
-.grid {
-    justify-content: center;
-    min-height: 100%;
+.gridContainer {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-
-.cardContainer{
-    margin: 20px 70px 30px 70px;
+    justify-content: center; /* Centers the grid horizontally */
+    padding: 20px;
+ }
+ 
+ .grid {
+    display: flex; 
+    flex-wrap: wrap; /* Ensures cards wrap to the next row when needed */
+    justify-content: center; /* Aligns the cards in the center of the container */
+    gap: 20px; /* Space between the items */
+ }
+ 
+ .cardContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
     padding:  20px 20px 40px 20px;
     border-radius: 25px;
     border-style: solid;
     box-shadow: 8px 8px 2px 1px #5E503F;
+ }
+ 
+ 
+
+.icon-container {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    padding-right: 40px
 }
+
+
+  
 .cardContainer-2{
     margin:0 20% 30px 20%;
     padding: 20px;
@@ -150,7 +170,6 @@
 
 
 .cocktailImage-2{
-
     border-radius: 25px;
     margin: 10px 0px 0px 50px;
     height: 300px;
@@ -226,6 +245,7 @@
     color: #49111C;
     background: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .favIcon{
@@ -235,6 +255,7 @@
     font-size: 30px;
     background: transparent;
     border: none;
+    cursor: pointer;
 }
 .favIcon-2{
     display: inline-block;
@@ -243,6 +264,7 @@
     font-size: 30px;
     background: transparent;
     border: none;
+    cursor: pointer;
 }
 
 
@@ -253,6 +275,13 @@
     */
     .regularNav{
         display: none;
+    }
+    .navTitle{
+        color: #000000;
+        font-weight: bold;
+        font-size: 22px;
+        text-decoration: none;
+        margin: 35px 30px 0px 8px;
     }
     .mobileNav{
         display: flex;
@@ -372,7 +401,7 @@
     .dropDownMenu{
         position: relative;
         padding: 10px 10px 30px 10px;
-        width:100%;
+        width:90%;
         border-style: solid;
         border-radius: 10px;
         margin: 0;

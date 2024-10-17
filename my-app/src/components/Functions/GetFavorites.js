@@ -14,7 +14,6 @@ const GetDatabase = () => {
     let favArray = []
 
    const gettingList = async (e) => {
-      console.log("caleld")
       if (currentUser){
          const querySnapshot = await getDocs(collection(db, "Users/", currentUser.uid , "/Favorites"));
          querySnapshot.forEach((doc) => {
@@ -33,20 +32,20 @@ const GetDatabase = () => {
    }, [])
      
    return (
-    <div>
-      {data && data.length > 0 && ( <>
-         <CardDisplay data = {data}  fav = {isFav} onClick = {gettingList}></CardDisplay>
-      </>)}
-       {!data && !currentUser && (<>
-            <p className='favText'>Sign in to add your favorite drinks!</p>
-       </>)}
+      <div className='gridContainer'>
+         <div className='grid'>
+            {data && data.length > 0 && ( <>
+               <CardDisplay data = {data}  fav = {isFav} onClick = {gettingList}></CardDisplay>
+            </>)}
+            {!data && !currentUser && (<>
+                  <p className='favText'>Sign in to add your favorite drinks!</p>
+            </>)}
 
-       {data && data.length  === 0 && currentUser && (<>
-            <p className='favText'>Start adding your favorite drinks!</p>
-       </>)}
-
-
-    </div>
+            {data && data.length  === 0 && currentUser && (<>
+                  <p className='favText'>Start adding your favorite drinks!</p>
+            </>)}
+         </div>
+      </div>
    );
  };
  

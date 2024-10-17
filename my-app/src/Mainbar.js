@@ -24,8 +24,8 @@ import { useEffect, useState } from 'react';
 
 function Mainbar() {
   let newObject = window.localStorage.getItem("currentUser");
+  console.log(newObject)
   let currentUser = JSON.parse(newObject)
-  
   const [menu,setMenu] = useState(false)
   const [symbol,setSymbol] = useState(faBars)
 
@@ -63,31 +63,36 @@ function Mainbar() {
   return (
 
     <div>
-      <div className='regularNav'>
-        <NavLink as = {Link} className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")}  to = "/">Home</NavLink> 
-        <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to = "/AllDrinks">All Drinks</NavLink> 
-        <NavLink as = {Link}  className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to = "/Favorites">Favorites</NavLink>
+     <div className='regularNav'>
+        <div style={{ display: 'flex', gap: '15px' }}> 
+          <p className ="navTitle">Cocktail Recipes</p>
+          <NavLink as={Link} className={({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to="/">Home</NavLink>
+          <NavLink as={Link} className={({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to="/AllDrinks">All Drinks</NavLink>
+          <NavLink as={Link} className={({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} to="/Favorites">Favorites</NavLink>
+        </div>
         
-        <button className='userIcon' onClick={dropDown}>
-          {currentUser ? <img className='profilePic' src = {currentUser.photoURL} alt = "profile"></img> : <FontAwesomeIcon icon={faCircleUser} /> }
-          <FontAwesomeIcon className = "downArrow" icon={arrow} />
-          {login && 
-           <MenuAnimation >
-           
-            </MenuAnimation>
-          }
-        </button>
-        
+        <div>
+          <button className='userIcon' onClick={dropDown}>
+          {currentUser?.photoURL ? (<img className='profilePic' src={currentUser.photoURL} alt="profile" />) : (<FontAwesomeIcon icon={faCircleUser} />)}
+            <FontAwesomeIcon className="downArrow" icon={arrow} />
+            {login && <MenuAnimation></MenuAnimation>}
+          </button>
+        </div>
       </div>
+
       
       <div className='mobileNav'>
 
-          
+      <div style={{ display: 'flex', gap: '15px', justifyContent: 'space-between'}}> 
+          <p className ="navTitle">Cocktail Recipes</p>
+          <div>
           <button className ="menuButton" onClick={menuChange}><p className='menuDesc'>Menu</p><FontAwesomeIcon icon={symbol} /></button>
+          </div>
+          </div>
           {menu?
           <div className='mobileMenu'>
             <button className='userIcon' onClick={dropDown}>
-            {auth.currentUser ? <img className='profilePic' src = {auth.currentUser.photoURL} alt = "profile"></img> : <FontAwesomeIcon icon={faCircleUser} /> }
+            {currentUser?.photoURL ? (<img className='profilePic' src={currentUser.photoURL} alt="profile" />) : (<FontAwesomeIcon icon={faCircleUser} />)}
               <FontAwesomeIcon className = "downArrow" icon={arrow} />
               {login && 
                <MenuAnimation >

@@ -57,7 +57,7 @@ function Home(){
     }, [])
    return(
       <AnimatedPage>
-         <p className='pageHeader'>Top 3 Choices</p>
+         <p className='pageHeader'>Popular Picks</p>
          <div className='gridContainer'>
             <div className='grid'>
             {data1 && data1.length > 0 && ( <>
