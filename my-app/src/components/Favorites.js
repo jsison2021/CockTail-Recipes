@@ -5,7 +5,7 @@ import GetFavorites from './Functions/GetFavorites';
 function Saved(){
    return(
       <AnimatedPage>
-       <p className='pageHeader'>Favorites</p>
+       <p className='pageHeader'>My Favorites</p>
        <GetFavorites></GetFavorites>
       </AnimatedPage>
       

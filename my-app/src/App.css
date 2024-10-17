@@ -344,9 +344,9 @@
         font-size: 20px
     }
     .cardContainer-2{
-        margin:0 5% 0 5%;
+        margin:0 25px 25px 25px;
         border-radius: 25px;
-        text-align: center;
+        text-align: left;
         border-style: solid;
         box-shadow: 8px 8px 2px 1px #5E503F;
     }
@@ -354,7 +354,7 @@
     
     .cocktailImage-2{
         border-radius: 25px;
-        margin: 30px 25% 0px 25% ;
+        margin: 30px 25px 0px 25px ;
         width: 50%;
         height: 50%;
     }
