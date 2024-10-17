@@ -354,7 +354,7 @@
     
     .cocktailImage-2{
         border-radius: 25px;
-        margin: 30px 25px 0px 25px ;
+        margin: 30px 25% 0px 25% ;
         width: 50%;
         height: 50%;
     }
@@ -368,7 +368,7 @@
     }
     .cocktailText-3{
         display: block;
-        margin: 30px 25% 0px 25%;
+        margin: 30px 25% 0px 0px;
         font-size: 20px;
         font-weight: bold;
         text-decoration: none;
@@ -376,7 +376,7 @@
     }
     .cocktailText-4{
         display: block;
-        margin: 30px 25% 0px 25%;
+        margin: 30px 25% 0px 0px;
         font-size: 20px;
         text-decoration: none;
         color: #0A0908;
