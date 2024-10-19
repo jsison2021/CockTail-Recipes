@@ -11,17 +11,29 @@ CockTail Recipes is a responsive web app that allows users to explore a wide var
 The repository is organized as follows:
 
 CockTail-Recipes-main/
+
 │
+
 ├── my-app/                # Main application folder
+
 │   ├── public/            # Public assets and static files
+
 │   ├── src/               # Source code (React components, styles, etc.)
+
 │   ├── package.json       # NPM package information
+
 │   ├── README.md          # Additional README for the app
+
 │   └── netlify.toml       # Netlify deployment configuration
+
 │
+
 ├── .gitattributes         # Git configuration file
+
 ├── .gitignore             # Files to ignore in Git
+
 └── README.md              # Primary README for the project
+
 
 
 ### Key Files
