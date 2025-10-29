@@ -55,25 +55,21 @@ function Home(){
       gettingList()
         
     }, [])
+   // Combine all drinks into one array
+   const allDrinks = [];
+   if (data1 && data1.length > 0) allDrinks.push(...data1);
+   if (data2 && data2.length > 0) allDrinks.push(...data2);
+   if (data3 && data3.length > 0) allDrinks.push(...data3);
+
    return(
       <AnimatedPage>
          <p className='pageHeader'>Popular Picks</p>
-         <div className='gridContainer'>
-            <div className='grid'>
-            {data1 && data1.length > 0 && ( <>
-            <CardDisplay data = {data1} fav = {isFav}></CardDisplay>
-            </>)}
-            {data2 && data2.length > 0 && ( <>
-               <CardDisplay data = {data2} fav = {isFav}></CardDisplay>
-            </>)}
-            {data3 && data3.length > 0 && ( <>
-               <CardDisplay data = {data3} fav = {isFav}></CardDisplay>
-            </>)}
-               {error && <p></p>}
-            </div>
-      </div>
+         {allDrinks.length > 0 && (
+            <CardDisplay data={allDrinks} fav={isFav}></CardDisplay>
+         )}
+         {error && <p></p>}
       </AnimatedPage>
-      
+
    )
    
 }

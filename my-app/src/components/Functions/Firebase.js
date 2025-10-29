@@ -19,11 +19,29 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_APP_ID,
     measurementId: process.env.REACT_APP_MEASUREMENT_ID
   };
-  
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
 
-export const db = getFirestore(app)
-export const auth = getAuth(app)
-export const provider = new GoogleAuthProvider()
+// Initialize Firebase only if credentials are provided
+let app, db, auth, provider;
+
+try {
+  if (process.env.REACT_APP_API_KEY && process.env.REACT_APP_API_KEY !== 'your-api-key-here') {
+    app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+    auth = getAuth(app);
+    provider = new GoogleAuthProvider();
+  } else {
+    console.warn('Firebase credentials not configured. Authentication and favorites features will be disabled.');
+    // Create mock objects to prevent errors
+    db = null;
+    auth = null;
+    provider = null;
+  }
+} catch (error) {
+  console.error('Firebase initialization error:', error);
+  db = null;
+  auth = null;
+  provider = null;
+}
+
+export { db, auth, provider }

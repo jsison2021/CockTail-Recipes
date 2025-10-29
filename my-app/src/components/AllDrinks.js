@@ -61,21 +61,24 @@ function AllDrinks(){
     
    return(
 
-      <AnimatedPage>       
+      <AnimatedPage>
          <p className='pageHeader'>Find your Drink</p>
-         <FontAwesomeIcon className = "searchIcon" icon={faMagnifyingGlass} />
-         <input className='searchBar'
+         <div className='search-container'>
+            <FontAwesomeIcon className='searchIcon' icon={faMagnifyingGlass} />
+            <input
+               className='searchBar'
+               placeholder='Search for a cocktail...'
                onChange={(e) => gettingInfo(e.target.value)}
-               >
-         </input>
-        
+            />
+         </div>
+
          {data && data.length > 0 && ( <>
             <CardDisplay data = {data} fav = {isFav}></CardDisplay>
          </>)}
 
          {error && <p></p>}
-        
-         
+
+
       </AnimatedPage>
    )
    
