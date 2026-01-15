@@ -75,10 +75,13 @@ function Mainbar() {
           <button className='userIcon' onClick={dropDown}>
           {currentUser?.photoURL ? (<img className='profilePic' src={currentUser.photoURL} alt="profile" />) : (<FontAwesomeIcon icon={faCircleUser} />)}
             <FontAwesomeIcon className="downArrow" icon={arrow} />
-            {login && <MenuAnimation></MenuAnimation>}
           </button>
         </div>
       </div>
+
+      <AnimatePresence>
+        {login && <MenuAnimation onClose={dropDown} />}
+      </AnimatePresence>
 
       
       <div className='mobileNav'>
@@ -94,11 +97,6 @@ function Mainbar() {
             <button className='userIcon' onClick={dropDown}>
             {currentUser?.photoURL ? (<img className='profilePic' src={currentUser.photoURL} alt="profile" />) : (<FontAwesomeIcon icon={faCircleUser} />)}
               <FontAwesomeIcon className = "downArrow" icon={arrow} />
-              {login && 
-               <MenuAnimation >
-           
-               </MenuAnimation>
-              }
             </button>
              <NavLink as = {Link} className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} onClick={menuChange} to = "/">Home</NavLink> 
              <NavLink as = {Link} className = {({ isActive }) => (isActive ? "barlinks-active" : "barlinks")} onClick={menuChange} to = "/AllDrinks">All Drinks</NavLink> 
