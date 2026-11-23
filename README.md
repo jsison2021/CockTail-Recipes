@@ -24,7 +24,7 @@ CockTail-Recipes-main/
 
 │   ├── README.md          # Additional README for the app
 
-│   └── netlify.toml       # Netlify deployment configuration
+│   └── vercel.json        # Vercel build and SPA routing configuration
 
 │
 
@@ -40,12 +40,12 @@ CockTail-Recipes-main/
 - **`public/`**: Contains the public assets like images and the HTML file.
 - **`src/`**: Contains all the source code, including components, styles, and logic of the app.
 - **`package.json`**: Manages project dependencies and scripts.
-- **`netlify.toml`**: Configuration for hosting the app on Netlify.
+- **`vercel.json`**: Build command and SPA rewrites for hosting on Vercel.
 
 ## 💻 Technologies Used
 - **React**: For building the user interface.
 - **CSS**: For styling the application.
-- **Netlify**: For deployment and hosting.
+- **Vercel**: For deployment and hosting.
 
 ## 🚀 Setup Instructions
 
